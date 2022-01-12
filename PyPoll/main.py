@@ -9,6 +9,8 @@ total_votes = 0
 candidate_list = []
 candidate_vote_total = []
 candidate = str
+candidate_winner = str
+winner_total = 0
 
 
 # Define the path of the CSV input file
@@ -40,12 +42,28 @@ with open(csvpath, "r", encoding="utf-8-sig") as csvfile:
             
         
         # Increment the vote total for that candidate
+        # Determine the candidate index 
         candidate_index = candidate_list.index(candidate)
-    
+
+        # Incremenet the candidate vote total for that candidate using the index for that candidate
         candidate_vote_total[candidate_index] = candidate_vote_total[candidate_index] + 1
 
+# Print the output into the election_results.txt file
+
+
+
+
+# Print the output of the election in the terminal
+print("Election Results")
+print("--------------------------------------------------------")
+print("Total Votes:  " + "{:,}".format(total_votes))
+print("--------------------------------------------------------")
+# Print the individual candidates and their sub-totals, and determine the winner
 for candidate in candidate_list:
-    print(candidate + ": " + str(candidate_vote_total[candidate_list.index(candidate)]/total_votes) + "(" + str(candidate_vote_total[candidate_list.index(candidate)]) + ")")
-
-
-print(total_votes)
+    print(candidate + ": " + str("{:.3%}".format(candidate_vote_total[candidate_list.index(candidate)]/total_votes)) + "   (" + str("{:,}".format(candidate_vote_total[candidate_list.index(candidate)])) + ")")
+    if winner_total < candidate_vote_total[candidate_list.index(candidate)]:
+        winning_candidate = candidate
+        winner_total = candidate_vote_total[candidate_list.index(candidate)]
+print("--------------------------------------------------------")
+print("Winner:  " + winning_candidate)
+print("--------------------------------------------------------")
