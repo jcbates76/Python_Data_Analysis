@@ -49,9 +49,20 @@ with open(csvpath, "r", encoding="utf-8-sig") as csvfile:
         candidate_vote_total[candidate_index] = candidate_vote_total[candidate_index] + 1
 
 # Print the output into the election_results.txt file
-
-
-
+with open(output_path, "w", newline="") as f:
+    f.write("Election Results\n")
+    f.write("--------------------------------------------------------\n")
+    f.write("Total Votes:  " + "{:,}\n".format(total_votes))
+    f.write("--------------------------------------------------------\n")
+    # Print the individual candidates and their sub-totals, and determine the winner
+    for candidate in candidate_list:
+        f.write(candidate + ": " + str("{:.3%}".format(candidate_vote_total[candidate_list.index(candidate)]/total_votes)) + "   (" + str("{:,}".format(candidate_vote_total[candidate_list.index(candidate)])) + ")\n")
+        if winner_total < candidate_vote_total[candidate_list.index(candidate)]:
+            winning_candidate = candidate
+            winner_total = candidate_vote_total[candidate_list.index(candidate)]
+    f.write("--------------------------------------------------------\n")
+    f.write("Winner:  " + winning_candidate + "\n")
+    f.write("--------------------------------------------------------\n")
 
 # Print the output of the election in the terminal
 print("Election Results")
