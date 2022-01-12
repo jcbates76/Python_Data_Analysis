@@ -17,7 +17,7 @@ file = "\Resources\election_data.csv"
 
 # Define the path of the TXT output file
 output_path = os.path.join("Analysis", "election_results.txt")
-
+    
 # Perform loop for all records within the CSV dataset
 with open(file, "r", encoding="utf-8-sig") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
