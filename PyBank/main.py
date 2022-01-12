@@ -25,8 +25,8 @@ output_path = os.path.join("Analysis", "financial_analysis.txt")
 with open(csvpath, "r", encoding="utf-8-sig") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    # Ignore the header row in the data set
-    next(csvreader, None) 
+    # Store the header row into a variable
+    csv_header = next(csvreader) 
 
     # Perform analysis for each row within the dataset
     for row in csvreader:
