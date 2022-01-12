@@ -12,19 +12,21 @@ import os
 import csv
 
 # Define the path of the CSV input file
-csvpath = os.path.join("Resources", "election_data.csv")
+#csvpath = os.path.join("Resources", "election_data.csv") DEBUG
+file = "\Resources\election_data.csv"
 
 # Define the path of the TXT output file
 output_path = os.path.join("Analysis", "election_results.txt")
 
 # Perform loop for all records within the CSV dataset
-with open(csvpath, "r", encoding="utf-8-sig") as csvfile:
+with open(file, "r", encoding="utf-8-sig") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
     # Ignore the header row in the data set
     next(csvreader, None) 
 
     print(csvreader)
+    print("Maybe this code will finally work")
 
 # Things to do
 # Import and read the file
