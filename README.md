@@ -1,4 +1,4 @@
-# python-challenge
+# Python_Data_Analysis
 This repository contains two projects related to Python programming
 
 ## PyBank
@@ -16,6 +16,8 @@ The following analysis is performed:
 
 The output is displayed in the terminal as well as provided in a TXT file.  
 
+![PyBank Analysis Output](https://user-images.githubusercontent.com/94392882/188524409-310cd7a4-9d74-4197-834d-1f3a944646ab.png)
+
 ## PyPoll
 This program analyzes a dataset to determine election results.  
 The dataset contains the following data in a CSV file:  
@@ -31,3 +33,6 @@ The following analysis is performed:
 * Identify the winner of the election based on the popular vote.  
 
 The output is displayed in the terminal as well as provided in a TXT file.  
+
+![PyPoll Analysis Output](https://user-images.githubusercontent.com/94392882/188524398-b08d014f-298e-466b-9429-eafc26fc4f53.png)
+
